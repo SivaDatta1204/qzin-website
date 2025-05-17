@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { scrollToSection } from '@/lib/utils';
@@ -9,54 +9,71 @@ const MenuSection: React.FC = () => {
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
 
+  // Auto-scroll functionality
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (carouselRef.current) {
+        if (!canScrollRight) {
+          // Reset to beginning when we reach the end
+          carouselRef.current.scrollTo({
+            left: 0,
+            behavior: 'smooth',
+          });
+        } else {
+          // Continue scrolling right
+          const { clientWidth } = carouselRef.current;
+          const scrollAmount = clientWidth * 0.4; // Smaller increment for smoother scrolling
+          carouselRef.current.scrollBy({
+            left: scrollAmount,
+            behavior: 'smooth',
+          });
+        }
+      }
+    }, 4000); // Scroll every 4 seconds
+
+    return () => clearInterval(interval);
+  }, [canScrollRight]);
+
   const foodItems = [
     {
       image: "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Classic Burger",
       description: "With cheese and fries",
-      price: "₹199",
     },
     {
       image: "https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Pepperoni Pizza",
       description: "Medium, 8 slices",
-      price: "₹349",
     },
     {
       image: "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Veggie Salad Bowl",
       description: "Fresh and healthy",
-      price: "₹179",
     },
     {
       image: "https://images.unsplash.com/photo-1553621042-f6e147245754?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Spicy Ramen Bowl",
       description: "Authentic flavor",
-      price: "₹249",
     },
     {
       image: "https://images.unsplash.com/photo-1551782450-17144efb9c50?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Crispy Chicken Burger",
       description: "With spicy sauce",
-      price: "₹219",
     },
     {
       image: "https://images.unsplash.com/photo-1501200291289-c5a76c232e5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Sushi Platter",
       description: "Assorted flavors",
-      price: "₹399",
     },
     {
       image: "https://images.unsplash.com/photo-1574894709920-11b28e7367e3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Paneer Tikka",
       description: "Spicy Indian delicacy",
-      price: "₹249",
     },
     {
       image: "https://images.unsplash.com/photo-1555126634-323283e090fa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&h=350&q=80",
       name: "Noodle Bowl",
       description: "With veggies and sauce",
-      price: "₹199",
     },
   ];
 
@@ -80,7 +97,7 @@ const MenuSection: React.FC = () => {
   };
 
   return (
-    <section id="menu" className="py-16 bg-gradient-to-r from-[#FFD1D1] to-[#FFE7D1]">
+    <section id="menu" className="py-16 bg-gradient-to-b from-orange-50 to-orange-100">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -89,7 +106,7 @@ const MenuSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-poppins mb-4">Explore Our <span className="text-primary">Menu</span></h2>
+          <h2 className="text-3xl font-bold font-poppins mb-4">Explore Our <span className="text-orange-500">Menu</span></h2>
           <p className="text-gray-700 max-w-2xl mx-auto">Discover a wide variety of delicious meals ready to be delivered to you in minutes.</p>
         </motion.div>
         
@@ -99,7 +116,7 @@ const MenuSection: React.FC = () => {
             <Button
               variant="rounded"
               size="icon"
-              className={`bg-white text-primary shadow-lg ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
+              className={`bg-white text-orange-500 shadow-lg ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
               onClick={() => scroll('left')}
               disabled={!canScrollLeft}
             >
@@ -111,7 +128,7 @@ const MenuSection: React.FC = () => {
             <Button
               variant="rounded"
               size="icon"
-              className={`bg-white text-primary shadow-lg ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
+              className={`bg-white text-orange-500 shadow-lg ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
               onClick={() => scroll('right')}
               disabled={!canScrollRight}
             >
@@ -139,11 +156,8 @@ const MenuSection: React.FC = () => {
                   <img src={item.image} alt={item.name} className="w-full h-48 object-cover" />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-semibold text-lg">{item.name}</h3>
-                  <p className="text-gray-500 text-sm mb-2">{item.description}</p>
-                  <div className="flex items-center justify-between">
-                    <span className="font-bold text-primary">{item.price}</span>
-                  </div>
+                  <h3 className="font-semibold text-lg text-orange-500">{item.name}</h3>
+                  <p className="text-gray-500 text-sm">{item.description}</p>
                 </div>
               </motion.div>
             ))}
@@ -160,6 +174,7 @@ const MenuSection: React.FC = () => {
           <Button 
             variant="rounded" 
             size="lg"
+            className="bg-orange-500 hover:bg-orange-600"
             onClick={() => scrollToSection('download')}
           >
             View Full Menu in App
