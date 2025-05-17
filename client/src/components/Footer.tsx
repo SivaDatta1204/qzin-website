@@ -1,6 +1,7 @@
 import React from 'react';
 import { Facebook, Twitter, Instagram, Linkedin } from 'lucide-react';
 import { scrollToSection } from '@/lib/utils';
+import qzinLogo from '../assets/qzin-logo.jpeg';
 
 const Footer: React.FC = () => {
   const companyLinks = [
@@ -29,9 +30,13 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
           <div className="mb-8 md:mb-0 text-center md:text-left">
-            <h2 className="text-3xl font-bold font-poppins mb-2">
-              <span className="text-primary">Q</span><span className="text-secondary">zin</span>
-            </h2>
+            <div className="flex items-center justify-center md:justify-start mb-3">
+              <img 
+                src={qzinLogo} 
+                alt="Qzin Logo" 
+                className="h-12 w-auto mr-2 rounded-md" 
+              />
+            </div>
             <p className="text-gray-400 max-w-xs">Food delivery at lightning speed. Your favorite meals delivered in just 10 minutes.</p>
           </div>
           
@@ -59,7 +64,7 @@ const Footer: React.FC = () => {
             </div>
             
             <div className="col-span-2 md:col-span-1">
-              <h3 className="font-semibold text-lg mb-4">Connect</h3>
+              <h3 className="font-semibold text-lg mb-4">Connect With Us</h3>
               <div className="flex space-x-4 justify-center md:justify-start">
                 {socialLinks.map((link, index) => (
                   <a 

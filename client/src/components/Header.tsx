@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { scrollToSection } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Menu, X } from 'lucide-react';
+import qzinLogo from '../assets/qzin-logo.jpeg';
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -17,11 +18,13 @@ const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-sm">
-      <div className="container mx-auto px-4 py-3 flex justify-between items-center">
+      <div className="container mx-auto px-4 py-2 flex justify-between items-center">
         <div className="flex items-center">
-          <h1 className="text-3xl font-bold font-poppins">
-            <span className="text-primary">Q</span><span className="text-secondary">zin</span>
-          </h1>
+          <img 
+            src={qzinLogo} 
+            alt="Qzin Logo" 
+            className="h-12 w-auto mr-2" 
+          />
         </div>
         
         <nav className="hidden md:flex items-center space-x-6">
