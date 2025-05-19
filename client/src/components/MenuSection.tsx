@@ -136,7 +136,7 @@ const MenuSection: React.FC = () => {
   };
 
   return (
-    <section id="menu" className="py-16 bg-gradient-to-b from-orange-50 to-orange-100">
+    <section id="menu" className="py-16 bg-gradient-to-b from-[#03d8c3]/10 to-[#007d8a]/10">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -145,7 +145,7 @@ const MenuSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-poppins mb-4">Explore Our <span className="text-orange-500">Menu</span></h2>
+          <h2 className="text-3xl font-bold font-poppins mb-4">Explore Our <span className="text-primary">Menu</span></h2>
           <p className="text-gray-700 max-w-2xl mx-auto">Discover a wide variety of delicious meals ready to be delivered to you in minutes.</p>
         </motion.div>
         
@@ -157,7 +157,7 @@ const MenuSection: React.FC = () => {
               <Button
                 variant="rounded"
                 size="icon"
-                className="bg-white/80 backdrop-blur-sm text-orange-500 shadow-lg pointer-events-auto"
+                className="bg-white/80 backdrop-blur-sm text-primary shadow-lg pointer-events-auto"
                 onClick={() => scroll('left')}
               >
                 <ChevronLeft className="h-4 w-4" />
@@ -166,7 +166,7 @@ const MenuSection: React.FC = () => {
               <Button
                 variant="rounded"
                 size="icon"
-                className="bg-white/80 backdrop-blur-sm text-orange-500 shadow-lg pointer-events-auto"
+                className="bg-white/80 backdrop-blur-sm text-primary shadow-lg pointer-events-auto"
                 onClick={() => scroll('right')}
               >
                 <ChevronRight className="h-4 w-4" />
@@ -207,7 +207,7 @@ const MenuSection: React.FC = () => {
                   key={index}
                   onClick={() => setActiveIndex(index)}
                   className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                    activeIndex === index ? 'bg-orange-500 w-6' : 'bg-orange-300'
+                    activeIndex === index ? 'bg-primary w-6' : 'bg-primary/30'
                   }`}
                   aria-label={`View menu item ${index + 1}`}
                 />
@@ -218,7 +218,7 @@ const MenuSection: React.FC = () => {
             <div className="mt-5 text-center">
               <Button
                 variant="ghost"
-                className="text-orange-500 font-medium"
+                className="text-primary font-medium"
                 onClick={() => scrollToSection('download')}
               >
                 <span>See more dishes</span>
@@ -236,7 +236,7 @@ const MenuSection: React.FC = () => {
               <Button
                 variant="rounded"
                 size="icon"
-                className={`bg-white text-orange-500 shadow-lg ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
+                className={`bg-white text-primary shadow-lg ${!canScrollLeft ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
                 onClick={() => scroll('left')}
                 disabled={!canScrollLeft}
               >
@@ -248,7 +248,7 @@ const MenuSection: React.FC = () => {
               <Button
                 variant="rounded"
                 size="icon"
-                className={`bg-white text-orange-500 shadow-lg ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
+                className={`bg-white text-primary shadow-lg ${!canScrollRight ? 'opacity-50 cursor-not-allowed' : 'hover:bg-white/90'}`}
                 onClick={() => scroll('right')}
                 disabled={!canScrollRight}
               >
@@ -276,7 +276,7 @@ const MenuSection: React.FC = () => {
                     <img src={item.image} alt={item.name} className="w-full h-48 object-cover" />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold text-lg text-orange-500">{item.name}</h3>
+                    <h3 className="font-semibold text-lg text-primary">{item.name}</h3>
                     <p className="text-gray-500 text-sm">{item.description}</p>
                   </div>
                 </motion.div>
@@ -297,7 +297,7 @@ const MenuSection: React.FC = () => {
             <Button 
               variant="rounded" 
               size="lg"
-              className="bg-orange-500 hover:bg-orange-600"
+              className="bg-primary hover:bg-primary/80"
               onClick={() => scrollToSection('download')}
             >
               View Full Menu in App

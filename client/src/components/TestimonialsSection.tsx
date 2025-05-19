@@ -81,15 +81,15 @@ const TestimonialsSection: React.FC = () => {
     const hasHalfStar = rating % 1 !== 0;
 
     for (let i = 0; i < fullStars; i++) {
-      stars.push(<Star key={`star-${i}`} className="fill-yellow-400 text-yellow-400 h-5 w-5" />);
+      stars.push(<Star key={`star-${i}`} className="fill-accent text-accent h-5 w-5" />);
     }
 
     if (hasHalfStar) {
       stars.push(
-        <svg key="half-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-yellow-400 h-5 w-5">
+        <svg key="half-star" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent h-5 w-5">
           <defs>
             <linearGradient id="half" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="50%" stopColor="#FACC15" />
+              <stop offset="50%" stopColor="#5ff3e4" />
               <stop offset="50%" stopColor="transparent" />
             </linearGradient>
           </defs>
@@ -101,14 +101,14 @@ const TestimonialsSection: React.FC = () => {
 
     const emptyStars = 5 - Math.ceil(rating);
     for (let i = 0; i < emptyStars; i++) {
-      stars.push(<Star key={`empty-star-${i}`} className="text-yellow-400 h-5 w-5" />);
+      stars.push(<Star key={`empty-star-${i}`} className="text-accent h-5 w-5" />);
     }
 
     return stars;
   };
 
   return (
-    <section id="testimonials" className="py-16 bg-gradient-to-b from-orange-50 to-orange-100">
+    <section id="testimonials" className="py-16 bg-gradient-to-b from-[#03d8c3]/10 to-[#007d8a]/10">
       <div className="container mx-auto px-4">
         <motion.div 
           className="text-center mb-12"
@@ -117,14 +117,14 @@ const TestimonialsSection: React.FC = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <h2 className="text-3xl font-bold font-poppins mb-4">What Our <span className="text-orange-500">Customers</span> Say</h2>
+          <h2 className="text-3xl font-bold font-poppins mb-4">What Our <span className="text-primary">Customers</span> Say</h2>
           <p className="text-gray-700 max-w-2xl mx-auto">Join thousands of satisfied customers who rely on Qzin for their daily meals.</p>
         </motion.div>
         
         <div className="relative max-w-4xl mx-auto">
           {/* Large quote icon as background */}
           <div className="absolute top-0 left-0 transform -translate-x-1/4 -translate-y-1/4 opacity-10">
-            <Quote className="w-32 h-32 text-orange-500" />
+            <Quote className="w-32 h-32 text-primary" />
           </div>
 
           {/* Testimonial Card */}
@@ -139,7 +139,7 @@ const TestimonialsSection: React.FC = () => {
                 className="p-8 md:p-12"
               >
                 <div className="flex flex-col md:flex-row gap-6 items-center mb-8">
-                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-orange-200 flex-shrink-0">
+                  <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-primary/20 flex-shrink-0">
                     <img 
                       src={testimonials[activeIndex].avatar} 
                       alt={`${testimonials[activeIndex].name} profile`} 
@@ -147,7 +147,7 @@ const TestimonialsSection: React.FC = () => {
                     />
                   </div>
                   <div className="text-center md:text-left">
-                    <h3 className="text-xl font-semibold text-orange-500">{testimonials[activeIndex].name}</h3>
+                    <h3 className="text-xl font-semibold text-primary">{testimonials[activeIndex].name}</h3>
                     <p className="text-gray-500 text-sm">{testimonials[activeIndex].location}</p>
                     <div className="flex mt-2 justify-center md:justify-start">
                       {renderStars(testimonials[activeIndex].rating)}
@@ -159,11 +159,11 @@ const TestimonialsSection: React.FC = () => {
                 </div>
                 
                 <blockquote className="italic text-gray-700 text-lg md:text-xl relative">
-                  <span className="text-orange-500 text-4xl absolute top-0 left-0">"</span>
+                  <span className="text-primary text-4xl absolute top-0 left-0">"</span>
                   <p className="pl-8 pr-4">
                     {testimonials[activeIndex].comment}
                   </p>
-                  <span className="text-orange-500 text-4xl absolute bottom-0 right-0">"</span>
+                  <span className="text-primary text-4xl absolute bottom-0 right-0">"</span>
                 </blockquote>
               </motion.div>
             </AnimatePresence>
@@ -173,7 +173,7 @@ const TestimonialsSection: React.FC = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="bg-orange-500/10 hover:bg-orange-500/20 text-orange-500 rounded-full"
+                className="bg-primary/10 hover:bg-primary/20 text-primary rounded-full"
                 onClick={handlePrev}
               >
                 <ChevronLeft className="h-5 w-5" />
@@ -181,7 +181,7 @@ const TestimonialsSection: React.FC = () => {
               <Button
                 variant="ghost"
                 size="icon"
-                className="bg-orange-500/10 hover:bg-orange-500/20 text-orange-500 rounded-full"
+                className="bg-primary/10 hover:bg-primary/20 text-primary rounded-full"
                 onClick={handleNext}
               >
                 <ChevronRight className="h-5 w-5" />
@@ -195,7 +195,7 @@ const TestimonialsSection: React.FC = () => {
               <button
                 key={index}
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
-                  activeIndex === index ? 'bg-orange-500 w-8' : 'bg-orange-300'
+                  activeIndex === index ? 'bg-primary w-8' : 'bg-primary/30'
                 }`}
                 onClick={() => {
                   setActiveIndex(index);

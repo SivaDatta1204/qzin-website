@@ -13,11 +13,11 @@
   --card-foreground: 20 14.3% 4.1%;
   --border: 20 5.9% 90%;
   --input: 20 5.9% 90%;
-  --primary: 16 100% 50%; /* FF5A00 - Qzin primary orange */
-  --primary-foreground: 211 100% 99%;
-  --secondary: 151 100% 36%; /* 00B67A - Qzin secondary green */
-  --secondary-foreground: 24 9.8% 10%;
-  --accent: 49 100% 50%; /* FFD100 - Qzin accent yellow */
+  --primary: 174 97% 44%; /* #03d8c3 - Teal */
+  --primary-foreground: 0 0% 100%;
+  --secondary: 186 100% 27%; /* #007d8a - Dark Teal */
+  --secondary-foreground: 0 0% 100%;
+  --accent: 174 72% 70%; /* #5ff3e4 - Light Teal */
   --accent-foreground: 24 9.8% 10%;
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 60 9.1% 97.8%;
@@ -36,11 +36,11 @@
   --card-foreground: 0 0% 98%;
   --border: 240 3.7% 15.9%;
   --input: 240 3.7% 15.9%;
-  --primary: 16 100% 50%;
-  --primary-foreground: 211 100% 99%;
-  --secondary: 151 100% 36%;
-  --secondary-foreground: 0 0% 98%;
-  --accent: 49 100% 50%;
+  --primary: 174 97% 44%;
+  --primary-foreground: 0 0% 100%;
+  --secondary: 186 100% 27%;
+  --secondary-foreground: 0 0% 100%;
+  --accent: 174 72% 70%;
   --accent-foreground: 0 0% 98%;
   --destructive: 0 62.8% 30.6%;
   --destructive-foreground: 0 0% 98%;
