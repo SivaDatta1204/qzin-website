@@ -58,29 +58,14 @@ const AppPreviewSection: React.FC = () => {
               ))}
             </div>
             
-            <motion.div 
-              className="mt-8 flex flex-wrap gap-4"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-            >
-              <Button variant="rounded-black" size="xl" className="flex items-center gap-2">
-                <Apple className="h-6 w-6" />
-                <div className="flex flex-col items-start">
-                  <span className="text-xs">Download on the</span>
-                  <span className="text-sm font-semibold">App Store</span>
-                </div>
-              </Button>
-              
-              <Button variant="rounded-black" size="xl" className="flex items-center gap-2">
-                <Play className="h-6 w-6" />
-                <div className="flex flex-col items-start">
-                  <span className="text-xs">Get it on</span>
-                  <span className="text-sm font-semibold">Google Play</span>
-                </div>
-              </Button>
-            </motion.div>
+            <div className="mt-8 flex flex-wrap gap-4">
+              <a href="https://apps.apple.com/in/app/qzin/id6744155290" target="_blank" rel="noopener noreferrer">
+                <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" alt="Download on the App Store" style={{ height: '48px' }} />
+              </a>
+              <a href="https://play.google.com/store/apps/details?id=com.qzinapp.ordering&pcampaignid=web_share" target="_blank" rel="noopener noreferrer">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Get it on Google Play" style={{ height: '48px' }} />
+              </a>
+            </div>
           </motion.div>
           
           <motion.div 
